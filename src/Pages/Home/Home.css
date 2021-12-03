@@ -18,6 +18,11 @@
     height: 30%;
     border: 1px solid;
 }
+.Home-container .display .text {
+    font-size: 40px;
+    letter-spacing: 2px;
+    padding: 1% 2% 1% 2%;
+}
 .Home-container input {
     display: block;
     margin: 0 auto;
@@ -27,6 +32,7 @@
     border: 5px solid #FFC400;
     font-size: 32px;
     padding-left: 10px;
+    letter-spacing: 2px;
 }
 .Home-container .website-description {
     position: absolute;

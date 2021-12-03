@@ -10,6 +10,7 @@ function Multiplayer() {
         <Matches />
         <div className="Multiplayer-container">
           <div className="display"></div>
+          <input type="text" />
         </div>
       </div>
       

@@ -18,3 +18,14 @@
     height: 50%;
     border: 1px solid;
 }
+.Multiplayer-container input {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1%;
+    width: 53.8%;
+    height: 7%;
+    border: 5px solid #FFC400;
+    font-size: 32px;
+    padding-left: 10px;
+    letter-spacing: 2px;
+}

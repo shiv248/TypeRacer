@@ -9,7 +9,9 @@ function Home() {
       <div className="grid">
         <Matches />
         <div className="Home-container">
-          <div className="display"></div>
+          <div className="display">
+            <div className="text">The quick brown fox jumps over the lazy dog, and then wondered to himself, "what the dog doin'?"</div>
+          </div>
           <input type="text" />
           <h1 className="website-description">Scribe(ing) one word at a time!</h1>
         </div>
