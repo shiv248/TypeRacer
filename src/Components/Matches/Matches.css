@@ -7,7 +7,7 @@
     z-index: 1;
 
 }
-.Matches div {
+.Matches .title {
     text-align: center;
     font-size: 22px;
     padding: 8% 0;
