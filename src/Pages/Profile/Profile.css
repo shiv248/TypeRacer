@@ -1,0 +1,20 @@
+.Profile {
+    position: relative;
+    background-color: #D9FFF1;
+}
+.Profile .grid {
+    display: grid;
+    grid-template-columns: 20% auto;
+}
+
+
+.Profile-container {
+    position: relative;
+}
+.Profile-container .display {
+    background-color: white;
+    margin: 5% auto 0% auto;
+    width: 55%;
+    height: 50%;
+    border: 1px solid;
+}

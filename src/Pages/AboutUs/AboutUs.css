@@ -1,0 +1,20 @@
+.AboutUs {
+    position: relative;
+    background-color: #D9FFF1;
+}
+.AboutUs .grid {
+    display: grid;
+    grid-template-columns: 20% auto;
+}
+
+
+.AboutUs-container {
+    position: relative;
+}
+.AboutUs-container .display {
+    background-color: white;
+    margin: 5% auto 0% auto;
+    width: 55%;
+    height: 80%;
+    border: 1px solid;
+}

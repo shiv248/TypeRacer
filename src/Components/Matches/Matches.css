@@ -1,0 +1,14 @@
+.Matches {
+    background-color: #BFE9FF;
+    width: 100%;
+    height: calc(100vh - 101px);
+    border-right: 1px solid;
+    display: inline-block;
+    z-index: 1;
+
+}
+.Matches div {
+    text-align: center;
+    font-size: 22px;
+    padding: 8% 0;
+}

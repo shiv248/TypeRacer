@@ -1,0 +1,37 @@
+.Home {
+    position: relative;
+    background-color: #D9FFF1;
+}
+.Home .grid {
+    display: grid;
+    grid-template-columns: 20% auto;
+}
+
+
+.Home-container {
+    position: relative;
+}
+.Home-container .display {
+    background-color: white;
+    margin: 5% auto 0% auto;
+    width: 55%;
+    height: 30%;
+    border: 1px solid;
+}
+.Home-container input {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1%;
+    width: 53.8%;
+    height: 7%;
+    border: 5px solid #FFC400;
+    font-size: 32px;
+    padding-left: 10px;
+}
+.Home-container .website-description {
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    font-weight: normal;
+    font-size: 20px;
+}

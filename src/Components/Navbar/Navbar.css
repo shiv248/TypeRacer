@@ -1,0 +1,60 @@
+.Branding {
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+}
+.Branding img {
+    width: 40%;  /* https://dribbble.com/shots/3848396-Character-Typing */ 
+    box-shadow: 0px 1px 10px #888888;
+}
+.Branding div {
+    color: orchid;
+    text-shadow: 2px 2px black;
+    font-size: 20px;
+    font-family: cursive;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+}
+
+.Navbar {
+    background-color: #D9FFF1;
+    height: 100px;
+    border-bottom: 1px solid;
+    box-shadow: 0px 1px 18px #888888;
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+    grid-template-rows: auto;
+}
+ul {
+    list-style-type: none;
+    text-align: right;
+    margin: 0;  /* https://stackoverflow.com/questions/44614120/remove-whitespace-above-div-in-react-app */
+    padding: 0;
+    height: 100%;
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
+li {
+    font-size: 30px;
+}
+a:link {
+    text-decoration: none;
+}
+
+.UserInfo {
+    font-size: 25px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.UserInfo button {
+    font-size: 18px;
+    width: 50%;
+    margin: 0 auto;
+}
