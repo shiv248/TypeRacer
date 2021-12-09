@@ -18,3 +18,21 @@
     height: 80%;
     border: 1px solid;
 }
+.AboutUs-container .display p {
+    padding: 0 10%;
+    font-size: 24px;
+}
+.AboutUs-container .display .fakereview1 {
+    padding: 0 10%;
+    font-size: 20px;
+    transform: rotate(-10deg);
+    position: absolute;
+    right: 0;
+}
+.AboutUs-container .display .fakereview2 {
+    padding: 0 10%;
+    font-size: 20px;
+    transform: rotate(5deg);
+    position: absolute;
+    bottom: 140px;
+}
