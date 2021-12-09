@@ -5,6 +5,7 @@ import Home from '../src/Pages/Home/Home';
 import Multiplayer from '../src/Pages/Multiplayer/Multiplayer';
 import Profile from '../src/Pages/Profile/Profile';
 import AboutUs from '../src/Pages/AboutUs/AboutUs';
+import Signup from '../src/Pages/Signup/Signup';
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                 <Route path='/multiplayer' element={<Multiplayer/>} />
                 <Route path='/profile' element={<Profile/>} />
                 <Route path='/aboutus' element={<AboutUs/>} />
+                <Route path='/signup' element={<Signup/>} />
             </Routes>
         </Router>
     );

@@ -19,7 +19,7 @@ function Navbar() {
 
         <div className="UserInfo">
           <div>Welcome, Guest!</div>
-          <button>Login / Signup</button>
+          <button><Link to="/signup">Login / Signup</Link></button>
         </div>
     </div>
   );
