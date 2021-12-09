@@ -33,6 +33,7 @@ class Signup extends React.Component {
         return (
             <div className="Signup">
                 <Navbar />
+                <p>Sunrise</p>
                 <div className="form-container">
                     <h1>Sign Up</h1>
                     <form className="grid" onSubmit={this.handleSubmit}>

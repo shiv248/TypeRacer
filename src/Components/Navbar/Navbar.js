@@ -19,7 +19,10 @@ function Navbar() {
 
         <div className="UserInfo">
           <div>Welcome, Guest!</div>
-          <button><Link to="/signup">Login / Signup</Link></button>
+          <div className="navbar-grid">
+            <button className="login-button"><Link to="/login">Login</Link></button>
+            <button className="signup-button"><Link to="/signup">Sign up</Link></button>
+          </div>
         </div>
     </div>
   );

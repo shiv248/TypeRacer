@@ -1,14 +1,14 @@
-.Signup {
-    background-image: linear-gradient(0deg, #7577ff, #ff7575);
+.Login {
+    background-image: linear-gradient(180deg, #7577ff, #ff7575);
     height: calc(100vh);
     position: relative;
 }
-.Signup p {
+.Login p {
     position: absolute;
     right: 10px;
-    top: 90px;
+    bottom: -5px;
 }
-.Signup .form-container {
+.Login .form-container {
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
     margin: auto;
@@ -22,25 +22,25 @@
     border: 1px solid black;
     font-size: 30px;
 }
-.Signup .form-container h1 {
+.Login .form-container h1 {
     position: absolute;
     top: -10px;
     font-size: 40px;
 }
-.Signup .form-container .grid {
+.Login .form-container .grid {
     display: grid;
     grid-template-columns: 50% 50%;
 }
-.Signup .form-container .grid input {
+.Login .form-container .grid input {
     font-size: 25px;
     padding-left: 3%;
 }
-.Signup .form-container .grid input[type="checkbox"] {
+.Login .form-container .grid input[type="checkbox"] {
     width: 30px;
     height: 30px;
     margin: 0 auto;
 }
-.Signup .form-container .grid input[type="checkbox"]::before {
+.Login .form-container .grid input[type="checkbox"]::before {
     content: 'reveal';
     margin-left: -250%;
 }

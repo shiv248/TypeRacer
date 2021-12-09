@@ -49,12 +49,21 @@ a:link {
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
 }
-.UserInfo button {
+.UserInfo .navbar-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding-top: 8%;
+}
+.UserInfo .navbar-grid button {
     font-size: 18px;
     width: 50%;
-    margin: 0 auto;
+}
+.UserInfo .navbar-grid .login-button {
+    margin: auto 5% auto auto;
+    display: block;
+}
+.UserInfo .navbar-grid .signup-button {
+    margin: auto auto auto 5%;
+    display: block;
 }
