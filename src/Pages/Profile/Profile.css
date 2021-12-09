@@ -15,6 +15,62 @@
     background-color: white;
     margin: 5% auto 0% auto;
     width: 55%;
-    height: 50%;
+    height: 80%;
     border: 1px solid;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    overflow: auto;
+}
+::-webkit-scrollbar {
+    width: 0;
+}
+.Profile-container .display .profileinfo {
+    display: grid;
+    grid-template-columns: 30% auto;
+    font-size: 30px;
+    height: fit-content;
+    margin: auto 0;
+    border-bottom: 1px solid #797979;
+}
+.Profile-container .display .profileinfo .picture {
+    margin: auto auto;
+    width: fit-content;
+    height: fit-content;
+}
+.Profile-container .display .profileinfo .info {
+    margin: auto auto;
+    width: 80%;
+    height: fit-content;
+}
+.Profile-container .display .highscores {
+    height: fit-content;
+}
+.Profile-container .display .highscores h1 {
+    padding: 3%;
+    margin: 0 auto;
+    width: fit-content;
+}
+.Profile-container .display .highscores .scores {
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+}
+.Profile-container .display .highscores .scores table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto;
+}
+.Profile-container .display .highscores .scores table th {
+    text-align: center;
+    background-color: #0491aa;
+    color: white;
+}
+.Profile-container .display .highscores .scores table tr {
+    text-align: center;
+}
+.Profile-container .display .highscores .scores table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.Profile-container .display .highscores .scores table tr:hover {
+    background-color: #ddd;
 }
