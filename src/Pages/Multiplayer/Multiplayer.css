@@ -17,6 +17,8 @@
     width: 55%;
     height: 50%;
     border: 1px solid;
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
 }
 .Multiplayer-container input {
     display: block;
