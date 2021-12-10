@@ -1,0 +1,16 @@
+{
+  "name": "typeracer",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7"
+  },
+  "scripts": {
+    "start:client": "cd ./client && yarn build",
+    "start:server": "node server.js"
+  }
+}
