@@ -11,7 +11,7 @@ function Multiplayer() {
         <Matches />
         <div className="Multiplayer-container">
           <div className="display">
-            <LoadingBar />
+            <LoadingBar loadingData={30}/>
             <LoadingBar />
             <LoadingBar />
             <LoadingBar />
@@ -20,7 +20,7 @@ function Multiplayer() {
           <input type="text" />
         </div>
       </div>
-      
+
     </div>
   );
 }

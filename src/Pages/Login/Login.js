@@ -1,4 +1,4 @@
-import React, { myFunction } from 'react';
+import React from 'react';
 import './Login.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import { Keccak } from 'sha3';

@@ -1,4 +1,4 @@
-import React, { useState, myFunction } from 'react';
+import React from 'react';
 import './Signup.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import { Keccak } from 'sha3';
