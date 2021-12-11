@@ -16,11 +16,29 @@
     border-radius: 30px;
     font-size: 25px;
     text-align: center;
-    font-family: javanese;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 .Match .container .wpm {
     font-size: 30px;
+}
+
+/* Match container and Date div */
+@media only screen and (min-width: 0px) and (max-width: 950px) {
+    .Match .container {
+        border-radius: 18px;
+    }
+    .Match .container .date {
+        font-size: 12px;
+    }
+}
+/* Text inside container */
+@media only screen and (max-width: 1200px) {
+    .Match .container {
+        font-size: 20px;
+    }
+    .Match .container .wpm {
+        font-size: 25px;
+    }
 }

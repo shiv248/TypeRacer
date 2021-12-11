@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
+import './WordsPerMin.css';
+
 const text =
-  "The quick brown fox jumps over the lazy dog";
+  "The quick fast agile brown fox jumps over the lazy dog";
 export default function WordsPerMin() {
   const [textToType] = useState(text);
   const [typedText, setTypedText] = useState("");
@@ -44,7 +46,7 @@ export default function WordsPerMin() {
   function handleFocus(){
     setTimeout(function () {
       searchInput.current.focus();
-  }, 1);
+    }, 1);
   }
 
   const start = () => {
@@ -71,30 +73,37 @@ export default function WordsPerMin() {
     if (parts.matchedPart.length === (textToType.split("").length -1)) {
       setTimeout(function () {
         setTimeOn(false);
-    }, 200);
+      }, 200);
     }
   }, [parts, textToType]);
 
 
   if (parts.unmatchedPart.length >= 0) {
     return (
-      <div>
-        {timerOn ? <div>Your current WPM: {wpm}</div> : null}
-        <div>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</div>
-        <div>{("0" + Math.floor((time / 100) % 60)).slice(-2)}</div>
-        <div>
-          <b>{parts.matchedPart}</b>
-          {parts.unmatchedPart}
+      <div className="WPM">
+        <div className="information">
+          <div className="clock">
+            <div className="inline">{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</div>
+            <div className="inline">{("0" + Math.floor((time / 100) % 60)).slice(-2)}</div>
+          </div>
+          {!timerOn ? <button className="block" onClick={start}>Start</button> : <button className="block" onClick={restart}>Restart</button>}
         </div>
-        {!timerOn ? <button onClick={start}>start</button> : <button onClick={restart}>restart</button>}
-        {!timerOn ? <div>
+
+        <div className="display">
+          <div className="text">
+            <b>{parts.matchedPart}</b>
+            {parts.unmatchedPart}
+          </div>
+        </div>
+        
+        {!timerOn ? <div className="information">
           Your words per minute is {wpm}
-        </div> : <input
+          </div> : <input
           ref={searchInput}
           value={typedText}
           onChange={(e) => setTypedText(e.target.value)}
-          style={{ width: "70vw", height: "300px" }}
         />}
+        {timerOn ? <div className="information">Your current WPM: {wpm}</div> : null}
       </div>
     );
   } else {
