@@ -16,6 +16,21 @@
 .WPM .information {
     width: fit-content;
     margin: 0% auto 0% 22.5%;
+    font-size: 20px;
+}
+.WPM .information .clock {
+    background-color: red;
+    color: white;
+    padding: 0 5%;
+    width: fit-content;
+    font-size: 20px;
+}
+.WPM .information .clock .inline {
+    display: inline;
+}
+.WPM .information .block {
+    display: block;
+    font-size: 20px;
 }
 .WPM .information:nth-child(1) {
     width: fit-content;

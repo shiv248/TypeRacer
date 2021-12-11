@@ -82,9 +82,11 @@ export default function WordsPerMin() {
     return (
       <div className="WPM">
         <div className="information">
-          <div>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</div>
-          <div>{("0" + Math.floor((time / 100) % 60)).slice(-2)}</div>
-          {!timerOn ? <button onClick={start}>Start</button> : <button onClick={restart}>Restart</button>}
+          <div className="clock">
+            <div className="inline">{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</div>
+            <div className="inline">{("0" + Math.floor((time / 100) % 60)).slice(-2)}</div>
+          </div>
+          {!timerOn ? <button className="block" onClick={start}>Start</button> : <button className="block" onClick={restart}>Restart</button>}
         </div>
 
         <div className="display">
