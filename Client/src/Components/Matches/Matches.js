@@ -1,47 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import './Matches.css';
 import Match from '../Match/Match';
 
-class Matches extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
+const axios = require('axios');
 
-        }
-    }
-    temp = [
-      { date: "11/29/2021",
-        time:"7:34 pm",
-        wpm:94
-      },
-      { date: "10/15/2021",
-        time:"6:09 pm",
-        wpm:101
-      },
-      { date: "12/6/2021",
-        time:"5:22 pm",
-        wpm:71
-      }
-    ]
+export default function Matches() {
+  const [matchList, setMatchList] = useState([]);
 
-    render(){
-        //const data = this.state;
-
-        let display = []
-        for(let i = 0; i < Object.keys(this.temp).length;i++){
-          let data2 = this.temp[i]
-          display.push(
-                <Match key={i} matchData={data2}/>
-          )
-        }
-
-        return(
-          <div className="Matches">
-              <div className="title">Your Past Matches</div>
-              {display}
-          </div>
-        )
-    }
+useEffect(() => {
+  axios.get('/pastMatch', {
+  params: {
+    user: "shiv248"
   }
+})
+  .then(function (response) {
+    console.log(response.data);
+    setMatchList(response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}, []);
 
-export default Matches;
+    return (
+      <div className="Matches">
+          <div className="title">Your Past Matches</div>
+          {matchList.map((match, index) => (
+            <Match key={index} matchData={match}/>
+          ))}
+      </div>
+    );
+  }

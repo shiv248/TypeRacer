@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import './WordsPerMin.css';
 
+var moment = require('moment');
 const axios = require('axios');
 
 const text =
@@ -88,9 +89,12 @@ export default function WordsPerMin() {
   }, [test]);
 
   function newScorePost(){
+
     axios.post('/newScore', {
       userName: 'shiv248',
-      score: wpm
+      score: wpm,
+      date: moment().format('MM/D/YYYY'),
+      time: moment().format('h:mm a')
     })
     .then(function (response) {
       console.log(response);
@@ -98,6 +102,7 @@ export default function WordsPerMin() {
     .catch(function (error) {
       console.log(error);
     });
+
   };
 
 

@@ -2,6 +2,7 @@ import React from 'react';
 import './Profile.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import Matches from '../../Components/Matches/Matches';
+import HighScore from '../../Components/HighScore/HighScore';
 import MIME from '../../Images/Mime.png';
 
 class Profile extends React.Component {
@@ -78,26 +79,7 @@ class Profile extends React.Component {
                   <div>Highest WPM: {this.state.topWPM}</div>
                 </div>
               </div>
-              <div className='highscores'>
-                <h1>Top 10 Leaderboard (All Time)</h1>
-                <div className='scores'>
-                  <table>
-                    <tr>
-                      <th>#</th>
-                      <th>Name</th>
-                      <th>WPM</th>
-                    </tr>
-
-                    {this.state.leaderboard.map((person, index) => (
-                      <tr>
-                        <td>{index + 1}</td>
-                        <td>{person.name}</td>
-                        <td>{person.wpm}</td>
-                      </tr>
-                    ))}
-                  </table>
-                </div>
-              </div>
+              <HighScore />
             </div>
           </div>
         </div>

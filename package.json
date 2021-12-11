@@ -14,7 +14,7 @@
     "socket.io": "^4.4.0"
   },
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "yarn start:client && nodemon server.js",
     "start:client": "cd ./client && yarn build",
     "start:server": "node server.js"
   }
