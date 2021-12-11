@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import './WordsPerMin.css';
 
+const axios = require('axios');
+
 const text =
   "The quick fast agile brown fox jumps over the lazy dog";
 export default function WordsPerMin() {
@@ -9,6 +11,8 @@ export default function WordsPerMin() {
   const [time, setTime] = useState(0);
   const [timerOn, setTimeOn] = useState(false);
   const [wpm, setWpm] = useState(0);
+  const [test, setTest] = useState("");
+  const [gameOver, setGameOver] = useState(false);
   const searchInput = useRef(null);
   const [attemptReady, setAttemptReady] = useState(true);
 
@@ -31,7 +35,6 @@ export default function WordsPerMin() {
 
   useEffect(() => {
     let interval = null;
-
     if(timerOn){
       interval = setInterval(() => {
         setTime(prevTime => prevTime + 10);
@@ -54,6 +57,8 @@ export default function WordsPerMin() {
     setAttemptReady(false);
     setTimeOn(true);
     handleFocus();
+    setTest("");
+    setGameOver(false);
   };
 
   const restart = () => {
@@ -65,20 +70,35 @@ export default function WordsPerMin() {
   };
 
   useEffect(() => {
-    if (parts.matchedPart.length > 1) {
+    if (!(test.length >= (textToType.split("").length))) {
       let seconds = Math.floor((time / 1000) % 60);
       setWpm(Math.floor(textToType.split(" ").length * 60 / seconds));
+      setTest(typedText);
     }
   }, [parts, textToType, time]);
 
 
   useEffect(() => {
-    if (parts.matchedPart.length === (textToType.split("").length -1)) {
-      setTimeout(function () {
-        setTimeOn(false);
-      }, 200);
+    if(test.length === (textToType.split("").length)){
+      setTimeOn(false);
+      setGameOver(true);
+      newScorePost();
     }
-  }, [parts, textToType]);
+
+  }, [test]);
+
+  function newScorePost(){
+    axios.post('/newScore', {
+      userName: 'shiv248',
+      score: wpm
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  };
 
 
   if (parts.unmatchedPart.length >= 0) {
@@ -103,6 +123,7 @@ export default function WordsPerMin() {
           Your words per minute is {wpm}
           </div> : <input
           ref={searchInput}
+          disabled={gameOver}
           value={typedText}
           onChange={(e) => setTypedText(e.target.value)}
         />}

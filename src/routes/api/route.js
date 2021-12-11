@@ -28,6 +28,7 @@ module.exports = function(app,io) {
   });
 
   app.post('/newScore', function(req, res) {
+    console.log(req.body);
     const username = req.body.userName
     const score = req.body.score
 
