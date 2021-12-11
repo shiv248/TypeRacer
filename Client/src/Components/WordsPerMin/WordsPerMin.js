@@ -10,6 +10,7 @@ export default function WordsPerMin() {
   const [timerOn, setTimeOn] = useState(false);
   const [wpm, setWpm] = useState(0);
   const searchInput = useRef(null);
+  const [attemptReady, setAttemptReady] = useState(true);
 
 
   const parts = useMemo(() => {
@@ -50,11 +51,13 @@ export default function WordsPerMin() {
   }
 
   const start = () => {
+    setAttemptReady(false);
     setTimeOn(true);
     handleFocus();
   };
 
   const restart = () => {
+    setAttemptReady(true);
     setTimeOn(false);
     setTime(0);
     setTypedText("");
@@ -86,7 +89,7 @@ export default function WordsPerMin() {
             <div className="inline">{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</div>
             <div className="inline">{("0" + Math.floor((time / 100) % 60)).slice(-2)}</div>
           </div>
-          {!timerOn ? <button className="block" onClick={start}>Start</button> : <button className="block" onClick={restart}>Restart</button>}
+          {attemptReady ? <button className="block" onClick={start}>Start</button> : <button className="block" onClick={restart}>Restart</button>}
         </div>
 
         <div className="display">
@@ -95,7 +98,7 @@ export default function WordsPerMin() {
             {parts.unmatchedPart}
           </div>
         </div>
-        
+
         {!timerOn ? <div className="information">
           Your words per minute is {wpm}
           </div> : <input
