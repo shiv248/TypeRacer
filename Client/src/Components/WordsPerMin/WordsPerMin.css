@@ -1,0 +1,39 @@
+.WPM {
+    width: 100%;
+}
+.WPM input {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1%;
+    width: 53%;
+    height: 7%;
+    border: 5px solid #FFC400;
+    font-size: 32px;
+    padding-left: 10px;
+    padding-right: 10px;
+    letter-spacing: 2px;
+}
+.WPM .information {
+    width: fit-content;
+    margin: 0% auto 0% 22.5%;
+}
+.WPM .information:nth-child(1) {
+    width: fit-content;
+    margin: 3% auto 0% 22.5%;
+}
+.WPM .information button {
+    background-color: rgb(103, 255, 129);
+    font-weight: bold;
+    font-size: 20px;
+}
+.WPM .display {
+    background-color: white;
+    margin: 3% auto 0% auto;
+    width: 55%;
+    border: 1px solid;
+}
+.WPM .display .text {
+    font-size: 30px;
+    letter-spacing: 2px;
+    padding: 1% 2% 1% 2%;
+}
