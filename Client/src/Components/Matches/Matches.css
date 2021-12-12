@@ -5,10 +5,13 @@
     border-right: 1px solid;
     display: inline-block;
     z-index: 1;
-
+    overflow: auto;
 }
 .Matches .title {
     text-align: center;
     font-size: 22px;
     padding: 8% 3%;
+}
+::-webkit-scrollbar {
+    width: 0;
 }

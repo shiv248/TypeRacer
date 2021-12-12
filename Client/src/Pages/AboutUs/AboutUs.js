@@ -17,8 +17,6 @@ class AboutUs extends React.Component {
                 <br /><br />
                 <a href='https://www.linkedin.com/in/shiv248/' target="_blank" rel="noreferrer">Shivanshu Gupta</a> and <a href='https://www.linkedin.com/in/trumanjfchan/' target="_blank" rel="noreferrer">Truman Chan</a> created this web app for their UCM Full Stack Computing course.
               </p>
-              <p className='fakereview1'>"wowza! This site actually works!" - anon</p>
-              <p className='fakereview2'>"Would test my WPM again~ <b>^-^</b>" - you</p>
             </div>
           </div>
         </div>
