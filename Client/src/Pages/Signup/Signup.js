@@ -2,6 +2,7 @@ import React from 'react';
 import './Signup.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import { Keccak } from 'sha3';
+const axios = require('axios');
 
 class Signup extends React.Component {
     constructor(props) {
@@ -18,14 +19,20 @@ class Signup extends React.Component {
     }
 
     hashMe(pass) {
+      console.log("original: " + pass);
       const hash = new Keccak(256);
       hash.reset();
       hash.update(pass);
       const pass1 = hash.digest('hex');
+      console.log("hash1: " + pass1);
       hash.reset();
-      const pepper = String.fromCharCode(Math.floor(Math.random() * (90 - 65 + 1) + 65));
-      hash.update(pass1).update(pepper);
+      const pepper = String.fromCharCode(Math.floor(Math.random() * (90 - 65 + 1)) + 65);
+      console.log("pepper: " + pepper)
+      const pass2  = pass1 + pepper;
+      console.log("hash1 + pepper: " + pass2);
+      hash.update(pass2);
       const temp = hash.digest('hex');
+      console.log("hash2: " + temp);
       return temp;
     }
 
@@ -43,8 +50,19 @@ class Signup extends React.Component {
 
 
     handleSubmit(event) {
-        alert('the password was submitted: ' + this.state.pass);
-        event.preventDefault();
+      axios.post('/signUpUser', {
+        firstName: this.state.fName,
+        lastName: this.state.lName,
+        userName: this.state.uName,
+        password: this.state.pass
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      event.preventDefault();
     };
 
     togglePasswordVisiblity = () => {

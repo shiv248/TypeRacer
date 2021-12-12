@@ -2,6 +2,7 @@ import React from 'react';
 import './Login.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import { Keccak } from 'sha3';
+const axios = require('axios');
 
 
 class Login extends React.Component {
@@ -38,7 +39,18 @@ class Login extends React.Component {
 
 
   handleSubmit(event) {
-      alert('the password was submitted: ' + this.state.pass);
+    console.log(this.state.uName);
+    console.log(this.state.pass);
+      axios.post('/loginUser', {
+        userName: this.state.uName,
+        password: this.state.pass
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
       event.preventDefault();
   };
 
