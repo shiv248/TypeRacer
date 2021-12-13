@@ -4,8 +4,11 @@ import './WordsPerMin.css';
 var moment = require('moment');
 const axios = require('axios');
 
-const text =
-  "The quick fast agile brown fox jumps over the lazy dog";
+/* https://stackoverflow.com/questions/13237421/how-to-generate-random-words-in-javascript , https://stackoverflow.com/questions/2724509/shuffling-words-in-a-sentence-in-javascript-coding-horror-how-to-improve */
+const things = ['The quick fast agile brown fox jumps over the lazy dog', "Can we pretend that airplanes in the night sky are like shootin' stars", 'Step by step Heart to heart Left right left We all fall down Like toy soldiers', "You got designer shades just to hide your face and you wear 'em around like you're cooler than me", 'But one of these things is not like the others Like a rainbow with all of the colors', "I wanna tell you but I don't know how I can't love you anymore than I do now", "You stopped loving me on the dark nights Now you won't kiss me in the sunlight"];
+const chosentext = things[Math.floor(Math.random()*things.length)];
+const text = chosentext.split(' ').sort(() => Math.floor(Math.random() * Math.floor(3)) - 1).join(' ');
+
 export default function WordsPerMin() {
   const [textToType] = useState(text);
   const [typedText, setTypedText] = useState("");
@@ -133,6 +136,7 @@ export default function WordsPerMin() {
           onChange={(e) => setTypedText(e.target.value)}
         />}
         {timerOn ? <div className="information">Your current WPM: {wpm}</div> : null}
+        <div className="full-sentence"><i>{chosentext}</i></div>
       </div>
     );
   } else {

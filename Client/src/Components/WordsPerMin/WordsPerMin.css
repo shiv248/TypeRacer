@@ -58,3 +58,7 @@
           -ms-user-select: none; /* Internet Explorer/Edge */
               user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
+.WPM .full-sentence {
+    margin: 3% auto 0 22.5%;
+    font-size: 18px;
+}

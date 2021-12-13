@@ -28,11 +28,11 @@ export default function TopOneHundo(props) {
     }
     console.log(highScoreList)
     return (
-      <div className="Profile">
+      <div className="TopOneHundo">
         <Navbar fName={props.parentUser}/>
         <div className="grid">
           <Matches />
-          <div className="Profile-container">
+          <div className="TopOneHundo-container">
             <div className="display">
               <TableMaker data={highScoreList} title={HSTitle}/>
             </div>
