@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from "react-router-dom";
 import './Signup.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import { Keccak } from 'sha3';
@@ -12,7 +13,8 @@ class Signup extends React.Component {
                       lName: '',
                       uName: '',
                       pass:'',
-                      visiblity: 'password'
+                      visiblity: 'password',
+                      redirect: false,
                       };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -57,8 +59,16 @@ class Signup extends React.Component {
         password: this.state.pass
       })
       .then(function (response) {
-        console.log(response);
-      })
+        let res = response.data;
+        if(res.result === "access granted!"){
+          localStorage.setItem('jswtoken', res.jwtoken);
+          this.props.setParentUser(res.userName);
+          this.props.setParentName([this.fName,this.lName]);
+          this.setState({
+            redirect: true
+          })
+        }
+      }.bind(this))
       .catch(function (error) {
         console.log(error);
       });
@@ -73,29 +83,37 @@ class Signup extends React.Component {
         )
     }
 
-    render() {
-        return (
-            <div className="Signup">
-                <Navbar />
-                <p>Sunrise</p>
-                <div className="form-container">
-                    <h1>Sign Up</h1>
-                    <form className="grid" onSubmit={this.handleSubmit}>
-                        <label>First Name:</label>
-                        <input name="fName" type="text" value={this.state.fName} onChange={this.handleChange} />
-                        <label>Last Name:</label>
-                        <input name="lName" type="text" value={this.state.lName} onChange={this.handleChange} />
-                        <label>Username:</label>
-                        <input name="uName" type="text" value={this.state.uName} onChange={this.handleChange} />
-                        <label>Password:</label>
-                        <input name="pass" type={this.state.visiblity} value={this.state.value} onChange={this.handleChange} />
-                        <input type="checkbox" onClick={this.togglePasswordVisiblity} />
-                        <input type="submit" value="Submit" />
-                    </form>
-                </div>
-            </div>
-        );
-    }
+      render() {
+        if(this.state.redirect){
+          return <Navigate
+            to={{
+              pathname: "/",
+              state: { jswt: "hello" }
+            }} />
+        }else{
+          return (
+              <div className="Signup">
+                  <Navbar />
+                  <p>Sunrise</p>
+                  <div className="form-container">
+                      <h1>Sign Up</h1>
+                      <form className="grid" onSubmit={this.handleSubmit}>
+                          <label>First Name:</label>
+                          <input name="fName" type="text" value={this.state.fName} onChange={this.handleChange} />
+                          <label>Last Name:</label>
+                          <input name="lName" type="text" value={this.state.lName} onChange={this.handleChange} />
+                          <label>Username:</label>
+                          <input name="uName" type="text" value={this.state.uName} onChange={this.handleChange} />
+                          <label>Password:</label>
+                          <input name="pass" type={this.state.visiblity} value={this.state.value} onChange={this.handleChange} />
+                          <input type="checkbox" onClick={this.togglePasswordVisiblity} />
+                          <input type="submit" value="Submit" />
+                      </form>
+                  </div>
+              </div>
+          );
+      }
+  }
 }
 
 export default Signup;

@@ -4,12 +4,15 @@ import Navbar from '../../Components/Navbar/Navbar';
 import Matches from '../../Components/Matches/Matches';
 
 class AboutUs extends React.Component {
+  constructor(props) {
+      super(props);
+  }
   render() {
     return (
       <div className="AboutUs">
-        <Navbar />
+        <Navbar fName={this.props.parentUser}/>
         <div className="grid">
-          <Matches />
+          <Matches fName={this.props.parentUser}/>
           <div className="AboutUs-container">
             <div className="display">
               <p>

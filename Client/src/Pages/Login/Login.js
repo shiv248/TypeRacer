@@ -52,9 +52,10 @@ class Login extends React.Component {
         console.log(response);
         let res = response.data;
         if(res.result === "access granted!"){
+          localStorage.setItem('jswtoken', res.jwtoken);
+          this.props.setParentUser(res.userName);
           this.setState({
-            redirect: true,
-            res: res
+            redirect: true
           })
         }
       }.bind(this))
@@ -77,8 +78,7 @@ class Login extends React.Component {
       if(this.state.redirect){
         return <Navigate
           to={{
-            pathname: "/profile/" + this.state.uName,
-            state: { jswt: "hello" }
+            pathname: "/profile/" + this.state.uName
           }} />
       }else{
         return (

@@ -104,11 +104,11 @@ module.exports = function(app,io) {
         console.log(err)
       }
       var token = jwt.sign({
-                    verfiedUser: username
+                    verfiedUser: userName
                   }, process.env.SECRET, { expiresIn: '1d' });
 
       res.send({result: "access granted!",
-                userName: username,
+                userName: userName,
                 jwtoken: token
                 });
     });

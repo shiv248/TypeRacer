@@ -4,8 +4,12 @@ import Match from '../Match/Match';
 
 const axios = require('axios');
 
-export default function Matches() {
+export default function Matches(props) {
+  const [fName, setFirstName] = useState(null);
   const [matchList, setMatchList] = useState([]);
+  useEffect( () => {
+        setFirstName(props.fName)
+    }, [props.fName])
 
 useEffect(() => {
   axios.get('/pastMatch', {

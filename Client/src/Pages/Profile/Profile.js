@@ -7,7 +7,7 @@ import MIME from '../../Images/Mime.png';
 import TableMaker from '../../Components/TableMaker/TableMaker';
 const axios = require('axios');
 
-export default function Profile() {
+export default function Profile(props) {
   const [fName, setFirstName] = useState("");
   const [lName, setLastName] = useState("");
   const [uName, setUserName] = useState("");
@@ -16,10 +16,10 @@ export default function Profile() {
   const [matchResponse, setMatchResponse] = useState([]);
   const [profileMatchTitle, setProfileMatchTitle] = useState([]);
 
-  const params = useParams();
+  const URLParams = useParams();
   const parts = useMemo(() => {
-    getUserInfo(params.id);
-    setUserName(params.id);
+    getUserInfo(URLParams.id);
+    setUserName(URLParams.id);
     setProfileMatchTitle(["highscores","Match History (All Time)","Match Date","Match Time","WPM"]);
   }, []);
 
@@ -62,7 +62,7 @@ export default function Profile() {
 
     return (
       <div className="Profile">
-        <Navbar />
+        <Navbar fName={props.parentUser}/>
         <div className="grid">
           <Matches />
           <div className="Profile-container">

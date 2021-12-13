@@ -3,10 +3,10 @@ import Navbar from '../../Components/Navbar/Navbar';
 import Matches from '../../Components/Matches/Matches';
 import WordsPerMin from '../../Components/WordsPerMin/WordsPerMin';
 
-function Home() {
+function Home(props) {
   return (
     <div className="Home">
-      <Navbar />
+      <Navbar fName={props.parentUser}/>
       <div className="grid">
         <Matches />
         <div className="Home-container">

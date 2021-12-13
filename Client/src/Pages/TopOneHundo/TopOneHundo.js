@@ -5,7 +5,7 @@ import Matches from '../../Components/Matches/Matches';
 import TableMaker from '../../Components/TableMaker/TableMaker';
 const axios = require('axios');
 
-export default function TopOneHundo() {
+export default function TopOneHundo(props) {
   const [highScoreList, setHighScoreList] = useState([]);
   const [HSTitle, setHSTitle] = useState([]);
   useMemo(() => {
@@ -29,7 +29,7 @@ export default function TopOneHundo() {
     console.log(highScoreList)
     return (
       <div className="Profile">
-        <Navbar />
+        <Navbar fName={props.parentUser}/>
         <div className="grid">
           <Matches />
           <div className="Profile-container">

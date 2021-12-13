@@ -3,10 +3,10 @@ import Navbar from '../../Components/Navbar/Navbar';
 import Matches from '../../Components/Matches/Matches';
 import LoadingBar from '../../Components/LoadingBar/LoadingBar';
 
-function Multiplayer() {
+function Multiplayer(props) {
   return (
     <div className="Multiplayer">
-      <Navbar />
+      <Navbar fName={props.parentUser}/>
       <div className="grid">
         <Matches />
         <div className="Multiplayer-container">
