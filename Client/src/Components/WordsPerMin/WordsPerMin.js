@@ -108,6 +108,10 @@ export default function WordsPerMin() {
 
   };
 
+  const disablePaste = (e) => {
+    e.preventDefault();
+  };
+
 
   if (parts.unmatchedPart.length >= 0) {
     return (
@@ -130,6 +134,7 @@ export default function WordsPerMin() {
         {!timerOn ? <div className="information">
           Your words per minute is {wpm}
           </div> : <input
+          onPaste={disablePaste}
           ref={searchInput}
           disabled={gameOver}
           value={typedText}
