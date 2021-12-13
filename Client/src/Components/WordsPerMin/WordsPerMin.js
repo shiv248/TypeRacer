@@ -93,7 +93,7 @@ export default function WordsPerMin() {
     axios.post('/newScore', {
       userName: 'shiv248',
       score: wpm,
-      date: moment().format('MM/D/YYYY'),
+      date: moment().format('MM/DD/YYYY'),
       time: moment().format('h:mm a')
     })
     .then(function (response) {

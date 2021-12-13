@@ -1,5 +1,7 @@
 const db = require('../../../config/db.js');
 const { Keccak } = require('sha3');
+var jwt = require('jsonwebtoken');
+
 
 module.exports = function(app,io) {
 
@@ -13,8 +15,13 @@ module.exports = function(app,io) {
   });
 
   app.get('/user', function(req, res) {
-      //io.sockets.emit('update'); // how?
-      res.json({result: "get user OK!"});
+    let user = req.query.user;
+    db.query("SELECT firstName, lastName, matchDate, matchTime, score FROM heroku_1b3f8f408238da3.scores,heroku_1b3f8f408238da3.users where heroku_1b3f8f408238da3.scores.users_id = heroku_1b3f8f408238da3.users.id and heroku_1b3f8f408238da3.users.userName = '" + user + "' ORDER BY matchDate,matchTime DESC", (err,result)=>{
+      if(err) {
+        console.log(err)
+      }
+      res.send(result)
+    });
 
   });
 
@@ -67,7 +74,14 @@ module.exports = function(app,io) {
             hash.reset();
             if(temp2 === pass1){
                 console.log("logged in user " + username);
-                res.send({result: "access granted!"});
+                var token = jwt.sign({
+                              verfiedUser: username
+                            }, process.env.SECRET, { expiresIn: '1d' });
+
+                res.send({result: "access granted!",
+                          userName: username,
+                          jwtoken: token
+                          });
                 return;
             }
         }
@@ -89,7 +103,14 @@ module.exports = function(app,io) {
       if(err) {
         console.log(err)
       }
-      res.send(result)
+      var token = jwt.sign({
+                    verfiedUser: username
+                  }, process.env.SECRET, { expiresIn: '1d' });
+
+      res.send({result: "access granted!",
+                userName: username,
+                jwtoken: token
+                });
     });
   });
 }

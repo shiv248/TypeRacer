@@ -1,67 +1,65 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState, useRef } from "react";
+import { useParams } from "react-router-dom";
 import './Profile.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import Matches from '../../Components/Matches/Matches';
-import HighScore from '../../Components/HighScore/HighScore';
 import MIME from '../../Images/Mime.png';
+import TableMaker from '../../Components/TableMaker/TableMaker';
+const axios = require('axios');
 
-class Profile extends React.Component {
+export default function Profile() {
+  const [fName, setFirstName] = useState("");
+  const [lName, setLastName] = useState("");
+  const [uName, setUserName] = useState("");
+  const [topWPM, setTopWPM] = useState(null);
+  const [profileMatches, setProfileMatches] = useState(null);
+  const [matchResponse, setMatchResponse] = useState([]);
+  const [profileMatchTitle, setProfileMatchTitle] = useState([]);
 
-  constructor(props) {
-      super(props);
-      this.state = {
-                    fName: 'Truman',
-                    lName: 'Chan',
-                    uName: 'fullstack5ever',
-                    topWPM: 76,
-                    confirmPass: '',
-                    newPass:'',
-                    visiblity: 'password',
-                    leaderboard: [
-                                  { name: "Daryl Philbin",
-                                    wpm:94
-                                  },
-                                  { name: "Sheryl Filbin",
-                                    wpm:101
-                                  },
-                                  { name: "Shelly Cho",
-                                    wpm:71
-                                  },
-                                  { name: "Chelly Dho",
-                                    wpm:121
-                                  }
-                                ],
-                    };
-      //this.handleChange = this.handleChange.bind(this);
-      //this.handleSubmit = this.handleSubmit.bind(this);
-  }
-/*
-  handleChange(event) {
-      const target = event.target;
-      const value = target.value;
-      const object = target.name;
-      this.setState(
-        {
-          [object]: object === "pass" ? this.hashMe(value) : value,
+  const params = useParams();
+  const parts = useMemo(() => {
+    getUserInfo(params.id);
+    setUserName(params.id);
+    setProfileMatchTitle(["highscores","Match History (All Time)","Match Date","Match Time","WPM"]);
+  }, []);
+
+  useEffect(() => {
+    setProfileMatches(parseNameDateTime(matchResponse));
+  }, [matchResponse]);
+
+  function parseNameDateTime(data){
+    if(data.length > 0){
+      setFirstName(data[0].firstName);
+      setLastName(data[0].lastName);
+      let resultList = []
+      var topScore = 0;
+      for(var i = 0; i < data.length; i++){
+        if(data[i].score > topScore){
+          topScore = data[i].score
         }
-      );
+        resultList.push([data[i].matchDate, data[i].matchTime, data[i].score])
+      }
+      setTopWPM(topScore);
+      return resultList
     }
-
-
-  handleSubmit(event) {
-      alert('the password was submitted: ' + this.state.pass);
-      event.preventDefault();
-  };
-
-  togglePasswordVisiblity = () => {
-      this.setState(
-        {
-            visiblity: this.state.visiblity === "password" ? "text" : "password"
-        }
-      )
   }
-*/
-  render() {
+
+  function getUserInfo(ign){
+    axios.get('/user', {
+    params: {
+      user: ign
+    }
+  })
+    .then(function (response) {
+      let res = response.data;
+      console.log(res)
+      setMatchResponse(res);
+    }.bind(this))
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
     return (
       <div className="Profile">
         <Navbar />
@@ -74,18 +72,16 @@ class Profile extends React.Component {
                   <img alt="Mime" src={MIME}/>
                 </div>
                 <div className='info'>
-                  <div>Username: {this.state.uName}</div>
-                  <div>Display name: {this.state.fName + " " + this.state.lName}</div>
-                  <div>Highest WPM: {this.state.topWPM}</div>
+                  <div>Name: {fName + " " + lName}</div>
+                  <div>IGN: {uName}</div>
+                  <div>Highest WPM: {topWPM}</div>
                 </div>
               </div>
-              <HighScore />
+              <TableMaker data={profileMatches} title={profileMatchTitle}/>
             </div>
+
           </div>
         </div>
       </div>
     );
-  }
 }
-
-export default Profile;

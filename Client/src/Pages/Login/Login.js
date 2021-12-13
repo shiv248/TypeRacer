@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from "react-router-dom";
 import './Login.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import { Keccak } from 'sha3';
@@ -11,7 +12,9 @@ class Login extends React.Component {
       this.state = {
                     uName: '',
                     pass:'',
-                    visiblity: 'password'
+                    visiblity: 'password',
+                    redirect: false,
+                    res: null
                     };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -47,7 +50,14 @@ class Login extends React.Component {
       })
       .then(function (response) {
         console.log(response);
-      })
+        let res = response.data;
+        if(res.result === "access granted!"){
+          this.setState({
+            redirect: true,
+            res: res
+          })
+        }
+      }.bind(this))
       .catch(function (error) {
         console.log(error);
       });
@@ -64,6 +74,13 @@ class Login extends React.Component {
   }
 
     render() {
+      if(this.state.redirect){
+        return <Navigate
+          to={{
+            pathname: "/profile/" + this.state.uName,
+            state: { jswt: "hello" }
+          }} />
+      }else{
         return (
             <div className="Login">
                 <Navbar />
@@ -81,7 +98,8 @@ class Login extends React.Component {
                 </div>
             </div>
         );
+      }
     }
-}
+  }
 
 export default Login;

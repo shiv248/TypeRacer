@@ -14,7 +14,6 @@ useEffect(() => {
   }
 })
   .then(function (response) {
-    console.log(response.data);
     setMatchList(response.data);
   })
   .catch(function (error) {
