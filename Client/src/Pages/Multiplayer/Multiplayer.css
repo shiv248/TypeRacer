@@ -1,0 +1,30 @@
+.Multiplayer {
+    position: relative;
+    background-color: #D9FFF1;
+    height: calc(100vh);
+}
+
+.Multiplayer .Multiplayer-container {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    width: 40%;
+    height: 50%;
+    background-color: white;
+    border: 1px solid black;
+}
+.Multiplayer .Multiplayer-container .display {
+    background-color: white;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+}
+.Multiplayer .Multiplayer-container input {
+    border: 5px solid #FFC400;
+    padding-left: 10px;
+    letter-spacing: 2px;
+}
+.Multiplayer .Multiplayer-container input[type="text"] {
+    margin: 5px 0px 0px 0px;
+    font-size: 22px;
+}

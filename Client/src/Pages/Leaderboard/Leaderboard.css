@@ -1,0 +1,51 @@
+.Leaderboard {
+    position: relative;
+    background-color: #D9FFF1;
+    height: calc(100vh);
+}
+
+.Leaderboard-container {
+    position: absolute;
+    top: 100px; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    width: 40%;
+    height: 70%;
+    background-color: white;
+    border: 1px solid black;
+}
+.Leaderboard-container .display {
+    height: 100%;
+    overflow: auto;
+}
+.Leaderboard-container .display .highscores {
+    overflow: auto;
+}
+.Leaderboard-container .display .highscores h1 {
+    padding: 3%;
+    margin: 0 auto;
+    width: fit-content;
+}
+.Leaderboard-container .display .highscores .scores {
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+}
+.Leaderboard-container .display .highscores .scores table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto;
+}
+.Leaderboard-container .display .highscores .scores table th {
+    text-align: center;
+    background-color: #0491aa;
+    color: white;
+}
+.Leaderboard-container .display .highscores .scores table tr {
+    text-align: center;
+}
+.Leaderboard-container .display .highscores .scores table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.Leaderboard-container .display .highscores .scores table tr:hover {
+    background-color: #ddd;
+}

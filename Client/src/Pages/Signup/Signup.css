@@ -1,0 +1,43 @@
+.Signup {
+    background-image: linear-gradient(0deg, #7577ff, #ff7575);
+    height: calc(100vh);
+    position: relative;
+}
+
+.Signup .form-container {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(218, 218, 218);
+    width: fit-content;
+    height: 50%;
+    border-radius: 50px;
+    border: 1px solid black;
+    font-size: 30px;
+    padding: 0 4%;
+}
+.Signup .form-container h1 {
+    position: absolute;
+    top: -10px;
+    font-size: 40px;
+}
+.Signup .form-container .grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.Signup .form-container .grid input {
+    font-size: 25px;
+    padding-left: 3%;
+}
+.Signup .form-container .grid input[type="checkbox"] {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+}
+.Signup .form-container .grid input[type="checkbox"]::before {
+    content: 'reveal';
+    margin-left: -250%;
+}

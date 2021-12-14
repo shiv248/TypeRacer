@@ -1,0 +1,126 @@
+.Branding {
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+}
+.Branding img {
+    width: 40%;  /* https://dribbble.com/shots/3848396-Character-Typing */ 
+    box-shadow: 0px 1px 10px #888888;
+}
+.Branding div {
+    color: orchid;
+    text-shadow: 2px 2px black;
+    font-size: 20px;
+    font-family: cursive;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+}
+
+.Navbar {
+    background-color: #D9FFF1;
+    height: 100px;
+    border-bottom: 1px solid;
+    box-shadow: 0px 1px 18px #888888;
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+    grid-template-rows: auto;
+}
+.Navbar ul {
+    list-style-type: none;
+    margin: 0;  /* https://stackoverflow.com/questions/44614120/remove-whitespace-above-div-in-react-app */
+    padding: 0;
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
+.Navbar ul li {
+    font-size: 30px;
+}
+.Navbar ul li a:link {
+    text-decoration: none;
+}
+
+.UserInfo {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.UserInfo div {
+    font-size: 25px;
+    padding-top: 4%;
+}
+.UserInfo .navbar-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding-top: 6%;
+}
+.UserInfo .navbar-grid button {
+    font-size: 15px;
+    width: 50%;
+}
+.UserInfo .navbar-grid .login-button {
+    margin: auto 5% auto auto;
+}
+.UserInfo .navbar-grid .login-button a:link {
+    text-decoration: none;
+}
+.UserInfo .navbar-grid .signup-button {
+    margin: auto auto auto 5%;
+}
+.UserInfo .navbar-grid .signup-button a:link {
+    text-decoration: none;
+}
+
+.UserInfo .navbar-logout-container .logout-button {
+    font-size: 15px;
+    width: 30%;
+    padding-bottom: 2%;
+}
+
+/* {Welcome div:Log out div} and Login/Signup buttons */
+@media only screen and (max-width: 950px) {
+    .UserInfo .welcome {
+        display: none;
+    }
+    .UserInfo .navbar-logout-container {
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center
+    }
+    .UserInfo .navbar-grid {
+        height: 90%;
+    }
+    .UserInfo .navbar-grid button {
+        font-size: 13px;
+        width: 40%;
+        height: 50%;
+    }
+}
+/* Scribing gif and Text in navbar */
+@media only screen and (max-width: 1200px) {
+    .Branding img {
+        width: 50%;
+        height: auto;
+    }
+    .Navbar ul li {
+        font-size: 25px;
+    }
+    .UserInfo div {
+        font-size: 20px;
+        padding-bottom: 4%;
+    }
+    .UserInfo .navbar-grid button {
+        font-size: 13px;
+        width: 40%;
+    }
+}
+/* Login/Signup buttons */
+@media only screen and (max-width: 1350px) {
+    .UserInfo .navbar-grid {
+        display: flex;
+        padding: 6% 10% 0% 10%;
+    }
+}

@@ -1,0 +1,64 @@
+.WPM {
+    width: 100%;
+}
+.WPM input {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1%;
+    width: 53%;
+    height: 7%;
+    border: 5px solid #FFC400;
+    font-size: 32px;
+    padding-left: 10px;
+    padding-right: 10px;
+    letter-spacing: 2px;
+}
+.WPM .information {
+    width: fit-content;
+    margin: 0% auto 0% 22.5%;
+    font-size: 20px;
+}
+.WPM .information .clock {
+    background-color: red;
+    color: white;
+    padding: 0 5%;
+    width: fit-content;
+    font-size: 20px;
+}
+.WPM .information .clock .inline {
+    display: inline;
+}
+.WPM .information .block {
+    display: block;
+    font-size: 20px;
+}
+.WPM .information:nth-child(1) {
+    width: fit-content;
+    margin: 3% auto 0% 22.5%;
+}
+.WPM .information button {
+    background-color: rgb(103, 255, 129);
+    font-weight: bold;
+    font-size: 20px;
+}
+.WPM .display {
+    background-color: white;
+    margin: 3% auto 0% auto;
+    width: 55%;
+    border: 1px solid;
+}
+.WPM .display .text {
+    font-size: 30px;
+    letter-spacing: 2px;
+    padding: 1% 2% 1% 2%;
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+.WPM .full-sentence {
+    margin: 3% 22.5% 0% 22.5%;
+    font-size: 18px;
+}

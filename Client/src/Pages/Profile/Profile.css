@@ -1,0 +1,70 @@
+.Profile {
+    position: relative;
+    background-color: #D9FFF1;
+    height: calc(100vh);
+}
+
+.Profile-container {
+    position: absolute;
+    top: 100px; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    width: 40%;
+    height: 70%;
+    background-color: white;
+}
+.Profile-container .display {
+    height: 100%;
+    border: 1px solid;
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+.Profile-container .display .profileinfo {
+    display: grid;
+    grid-template-columns: 30% auto;
+    font-size: 30px;
+    height: fit-content;
+    margin: auto 0;
+}
+.Profile-container .display .profileinfo .picture {
+    margin: auto auto;
+    width: fit-content;
+    height: fit-content;
+}
+.Profile-container .display .profileinfo .info {
+    margin: auto auto;
+    width: 80%;
+    height: fit-content;
+}
+.Profile-container .display .highscores {
+    border-top: 1px solid #797979;
+    overflow: auto;
+}
+.Profile-container .display .highscores h1 {
+    padding: 3%;
+    margin: 0 auto;
+    width: fit-content;
+}
+.Profile-container .display .highscores .scores {
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+}
+.Profile-container .display .highscores .scores table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto;
+}
+.Profile-container .display .highscores .scores table th {
+    text-align: center;
+    background-color: #0491aa;
+    color: white;
+}
+.Profile-container .display .highscores .scores table tr {
+    text-align: center;
+}
+.Profile-container .display .highscores .scores table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.Profile-container .display .highscores .scores table tr:hover {
+    background-color: #ddd;
+}

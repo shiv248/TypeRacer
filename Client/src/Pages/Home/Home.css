@@ -1,0 +1,20 @@
+.Home {
+    position: relative;
+    background-color: #D9FFF1;
+}
+.Home .grid {
+    display: grid;
+    grid-template-columns: 20% auto;
+}
+
+
+.Home-container {
+    position: relative;
+}
+.Home-container .website-description {
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    font-weight: normal;
+    font-size: 20px;
+}

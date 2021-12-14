@@ -1,0 +1,22 @@
+.Matches {
+    background-color: #BFE9FF;
+    width: 100%;
+    height: calc(100vh - 101px);
+    border-right: 1px solid;
+    display: inline-block;
+    z-index: 1;
+    overflow: auto;
+}
+.Matches .title {
+    text-align: center;
+    font-size: 22px;
+    padding: 8% 3%;
+}
+.Matches .para {
+    text-align: center;
+    font-size: 15px;
+    padding: 8% 3%;
+}
+::-webkit-scrollbar {
+    width: 0;
+}
