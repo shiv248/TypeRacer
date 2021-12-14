@@ -84,7 +84,6 @@ class Login extends React.Component {
         return (
             <div className="Login">
                 <Navbar />
-                <p>Sundown</p>
                 <div className="form-container">
                     <h1>Log In</h1>
                     <form className="grid" onSubmit={this.handleSubmit}>

@@ -39,7 +39,7 @@ function Home(props) {
         <Matches uName={props.parentUser}/>
         <div className="Home-container">
           <WordsPerMin setScore={setScore}/>
-          <h1 className="website-description">Scribe(ing) one word at a time!</h1>
+          <h1 className="website-description">Scribing one word at a time!</h1>
         </div>
       </div>
 

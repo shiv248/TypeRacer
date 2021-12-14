@@ -76,12 +76,19 @@
 .UserInfo .navbar-logout-container .logout-button {
     font-size: 15px;
     width: 30%;
+    padding-bottom: 2%;
 }
 
-/* Welcome div and Login/Signup buttons */
+/* {Welcome div:Log out div} and Login/Signup buttons */
 @media only screen and (max-width: 950px) {
-    .UserInfo div {
+    .UserInfo .welcome {
         display: none;
+    }
+    .UserInfo .navbar-logout-container {
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center
     }
     .UserInfo .navbar-grid {
         height: 90%;

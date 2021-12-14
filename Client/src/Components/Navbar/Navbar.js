@@ -25,13 +25,13 @@ function Navbar(props) {
 
         <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/multiplayer">Multiplayer</Link></li>
+            {/* <li><Link to="/multiplayer">Multiplayer</Link></li> */}
             <li><Link to="/leaderboard">Leaderboard</Link></li>
             <li><Link to="/aboutus">About Us</Link></li>
         </ul>
 
         <div className="UserInfo">
-          <div>Welcome, {fName}!</div>
+          <div className="welcome">Welcome, {fName}!</div>
           <div className="navbar-logout-container">
             <button className="logout-button" onClick={refreshPage}>Log out</button>
           </div>
@@ -48,13 +48,13 @@ function Navbar(props) {
 
         <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/multiplayer">Multiplayer</Link></li>
+            {/* <li><Link to="/multiplayer">Multiplayer</Link></li> */}
             <li><Link to="/leaderboard">Leaderboard</Link></li>
             <li><Link to="/aboutus">About Us</Link></li>
         </ul>
 
         <div className="UserInfo">
-          <div>Welcome, Guest!</div>
+          <div className='welcome'>Welcome, Guest!</div>
           <div className="navbar-grid">
             <button className="login-button"><Link to="/login">Log in</Link></button>
             <button className="signup-button"><Link to="/signup">Sign up</Link></button>
