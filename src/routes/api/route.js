@@ -3,10 +3,10 @@ const { Keccak } = require('sha3');
 var jwt = require('jsonwebtoken');
 
 
-module.exports = function(app,io) {
+module.exports = function(app) {
 
   app.get('/top', function(req, res) {
-    db.query("SELECT DISTINCT firstName, lastName, MAX(score) FROM heroku_1b3f8f408238da3.scores,heroku_1b3f8f408238da3.users where heroku_1b3f8f408238da3.scores.users_id = heroku_1b3f8f408238da3.users.id GROUP BY firstName ORDER BY MAX(score) DESC", (err,result)=>{
+    db.query("SELECT DISTINCT firstName, lastName, MAX(score) as score FROM heroku_1b3f8f408238da3.scores,heroku_1b3f8f408238da3.users where heroku_1b3f8f408238da3.scores.users_id = heroku_1b3f8f408238da3.users.id GROUP BY firstName ORDER BY MAX(score) DESC", (err,result)=>{
       if(err) {
         console.log(err)
       }
@@ -27,7 +27,7 @@ module.exports = function(app,io) {
 
   app.get('/pastMatch', function(req, res) {
       let user = req.query.user;
-      db.query("SELECT matchDate, matchTime, score FROM heroku_1b3f8f408238da3.scores where userName = '"+ user +"' ORDER BY matchTime DESC", (err,result)=>{
+      db.query("SELECT matchDate, matchTime, score FROM heroku_1b3f8f408238da3.scores where userName = '"+ user +"' ORDER BY matchTime DESC LIMIT 10", (err,result)=>{
         if(err) {
           console.log(err)
         }
@@ -87,7 +87,6 @@ module.exports = function(app,io) {
         }
         res.send({reset: "access denied"});
       });
-      //io.sockets.emit('update'); // how?
 
   });
 

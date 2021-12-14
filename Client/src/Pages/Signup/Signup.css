@@ -27,6 +27,7 @@
 .Signup .form-container .grid {
     display: grid;
     grid-template-columns: 50% 50%;
+    margin-top: 10%;
 }
 .Signup .form-container .grid input {
     font-size: 25px;
