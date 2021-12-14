@@ -4,7 +4,6 @@ import './WordsPerMin.css';
 var moment = require('moment');
 const axios = require('axios');
 
-/* https://stackoverflow.com/questions/13237421/how-to-generate-random-words-in-javascript , https://stackoverflow.com/questions/2724509/shuffling-words-in-a-sentence-in-javascript-coding-horror-how-to-improve */
 const things = ['The quick fast agile brown fox jumps over the lazy dog', "Can we pretend that airplanes in the night sky are like shootin' stars", 'Step by step Heart to heart Left right left We all fall down Like toy soldiers', "You got designer shades just to hide your face and you wear 'em around like you're cooler than me", 'But one of these things is not like the others Like a rainbow with all of the colors', "I wanna tell you but I don't know how I can't love you anymore than I do now", "You stopped loving me on the dark nights Now you won't kiss me in the sunlight"];
 const chosentext = things[Math.floor(Math.random()*things.length)];
 const text = chosentext.split(' ').sort(() => Math.floor(Math.random() * Math.floor(3)) - 1).join(' ');
@@ -66,6 +65,7 @@ export default function WordsPerMin(props) {
   };
 
   const restart = () => {
+    props.setUsersPercent(0);
     setAttemptReady(true);
     setTimeOn(false);
     setTime(0);
@@ -83,11 +83,13 @@ export default function WordsPerMin(props) {
 
 
   useEffect(() => {
+    props.setUsersPercent(Math.floor(100 * test.length/textToType.length));
     if(test.length === (textToType.split("").length)){
+      props.setUsersPercent(Math.floor(100 * test.length/textToType.length));
       setTimeOn(false);
       setGameOver(true);
       newScorePost();
-    }
+  }
 
   }, [test]);
 
