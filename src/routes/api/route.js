@@ -27,7 +27,7 @@ module.exports = function(app,io) {
 
   app.get('/pastMatch', function(req, res) {
       let user = req.query.user;
-      db.query("SELECT matchDate, matchTime, score FROM heroku_1b3f8f408238da3.scores where userName = '"+ user +"' ORDER BY matchTime DESC", (err,result)=>{
+      db.query("SELECT matchDate, matchTime, score FROM heroku_1b3f8f408238da3.scores where userName = '"+ user +"' ORDER BY matchTime DESC LIMIT 10", (err,result)=>{
         if(err) {
           console.log(err)
         }
