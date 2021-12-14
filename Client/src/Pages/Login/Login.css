@@ -19,6 +19,11 @@
     font-size: 30px;
     padding: 0 4%;
 }
+@media only screen and (max-width: 750px) {
+    .Login .form-container {
+        display: none;
+    }
+}
 .Login .form-container h1 {
     position: absolute;
     top: -10px;

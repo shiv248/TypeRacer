@@ -4,17 +4,17 @@
     position: relative;
 }
 .Branding img {
-    width: 50%;  /* https://dribbble.com/shots/3848396-Character-Typing */
+    width: 40%;  /* https://dribbble.com/shots/3848396-Character-Typing */
     position: relative;
 }
 .Branding div {
     color: #011627;
     text-shadow: 1px 1.5px #F76F8E;
     font-size: 50px;
-    margin-left: 50px;
     font-family: cursive;
     font-weight: bold;
-    position: relative;
+    position: absolute;
+    top: 0;
 }
 
 .Navbar {
