@@ -39,7 +39,7 @@ useEffect(() => {
       return (
         <div className="Matches">
         <div className="title">Your Past Matches</div>
-        <div className="para"><p>Login/Sign Up to see your past matches!</p></div>
+        <div className="para"><p>Log in/Sign up to see your past matches!</p></div>
         </div>
       )
     }
