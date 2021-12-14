@@ -16,9 +16,9 @@
     "socket.io": "^4.4.0"
   },
   "scripts": {
-    "heroku-postbuild": "cd src/client && yarn install",
+    "heroku-postbuild": "cd Client && yarn install",
     "start": "yarn start:client && nodemon server.js",
-    "start:client": "cd client && yarn build",
+    "start:client": "cd Client && yarn build",
     "start:server": "node server.js"
   },
   "engines": {
