@@ -20,7 +20,7 @@ function Home(props) {
       axios.post('/newScore', {
         userName: props.parentUser,
         score: score,
-        date: moment().format('MM/DD/YYYY'),
+        date: moment().format('YYYY-MM-DD HH:mm:ss'),
         time: moment().format('h:mm a')
       })
       .then(function (response) {

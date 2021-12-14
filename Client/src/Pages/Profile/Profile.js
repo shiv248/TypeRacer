@@ -36,7 +36,7 @@ export default function Profile(props) {
         if(data[i].score > topScore){
           topScore = data[i].score
         }
-        resultList.push([data[i].matchDate, data[i].matchTime, data[i].score])
+        resultList.push([data[i].matchDate.slice(0,10), data[i].matchTime, data[i].score])
       }
       setTopWPM(topScore);
       return resultList

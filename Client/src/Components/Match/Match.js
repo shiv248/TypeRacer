@@ -5,7 +5,7 @@ class Match extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            date: this.props.matchData.matchDate,
+            date: this.props.matchData.matchDate.slice(0, 10),
             time: this.props.matchData.matchTime,
             wpm: this.props.matchData.score
         }

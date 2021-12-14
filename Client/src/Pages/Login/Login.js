@@ -57,6 +57,8 @@ class Login extends React.Component {
           this.setState({
             redirect: true
           })
+        }else{
+          window.location.reload();
         }
       }.bind(this))
       .catch(function (error) {
