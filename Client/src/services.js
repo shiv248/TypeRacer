@@ -1,5 +1,5 @@
 import io from "socket.io-client";
 const port = process.env.PORT || 5050;
-const ENDPOINT = "https://scribing.herokuapp.com" + port;
+const ENDPOINT = "localhost:" + port;
 
-export const socket = io(ENDPOINT);
+export const socket = io();
