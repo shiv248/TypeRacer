@@ -7,11 +7,17 @@ function Navbar(props) {
   const [fName, setFirstName] = useState(null);
 
   useEffect( () => {
-        setFirstName(props.fName)
-    }, [props.fName])
+    setFirstName(props.fName)
+  }, [props.fName])
 
-  return (
-    <div className="Navbar">
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
+
+  if (fName != null) {
+    return (
+      <div className="Navbar">
         <div className="Branding">
           <img src={ Logo } alt="Character Typing"/>
           <div>Scribing</div>
@@ -25,14 +31,38 @@ function Navbar(props) {
         </ul>
 
         <div className="UserInfo">
-          {fName != null ? <div>Welcome, {fName}!</div> : <div>Welcome, Guest!</div>}
+          <div>Welcome, {fName}!</div>
+          <div className="navbar-logout-container">
+            <button className="logout-button" onClick={refreshPage}>Log out</button>
+          </div>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="Navbar">
+        <div className="Branding">
+          <img src={ Logo } alt="Character Typing"/>
+          <div>Scribing</div>
+        </div>
+
+        <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/multiplayer">Multiplayer</Link></li>
+            <li><Link to="/leaderboard">Leaderboard</Link></li>
+            <li><Link to="/aboutus">About Us</Link></li>
+        </ul>
+
+        <div className="UserInfo">
+          <div>Welcome, Guest!</div>
           <div className="navbar-grid">
-            <button className="login-button"><Link to="/login">Login</Link></button>
+            <button className="login-button"><Link to="/login">Log in</Link></button>
             <button className="signup-button"><Link to="/signup">Sign up</Link></button>
           </div>
         </div>
-    </div>
-  );
+      </div>
+    )
+  }
 }
 
 export default Navbar;
