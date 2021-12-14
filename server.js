@@ -28,7 +28,8 @@ if(process.env.NODE_ENV !== 'production'){
 //Render React Application
 app.use(express.static(path.join(__dirname, "/Client/build/")));
 
-require('./src/routes/api/route.js')(app,io);
+require('./src/routes/api/route.js')(app);
+require('./src/routes/socket/socket.js')(io);
 
 //wildcard request, if request doesnt fit any predifened ones goes to landing page
 app.get('*', (request, response) =>{
