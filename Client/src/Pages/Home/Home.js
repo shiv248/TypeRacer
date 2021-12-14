@@ -8,6 +8,7 @@ const axios = require('axios');
 
 function Home(props) {
   const [score, setScore] = useState(0);
+  const [percent, setUsersPercent] = useState(0);
 
   useEffect(() => {
     if(score > 0){
@@ -38,7 +39,7 @@ function Home(props) {
       <div className="grid">
         <Matches uName={props.parentUser}/>
         <div className="Home-container">
-          <WordsPerMin setScore={setScore}/>
+          <WordsPerMin setScore={setScore} setUsersPercent={setUsersPercent}/>
           <h1 className="website-description">Scribing one word at a time!</h1>
         </div>
       </div>

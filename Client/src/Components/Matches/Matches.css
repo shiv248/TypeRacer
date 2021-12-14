@@ -1,5 +1,5 @@
 .Matches {
-    background-color: #BFE9FF;
+    background-color: #08B2E3;
     width: 100%;
     height: calc(100vh - 101px);
     border-right: 1px solid;
@@ -8,6 +8,7 @@
     overflow: auto;
 }
 .Matches .title {
+    font-weight: bold;
     text-align: center;
     font-size: 22px;
     padding: 8% 3%;
