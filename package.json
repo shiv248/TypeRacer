@@ -19,5 +19,8 @@
     "start": "yarn start:client && nodemon server.js",
     "start:client": "cd client && yarn build",
     "start:server": "node server.js"
-  }
+  },
+  "engines": {
+    "node": "14.x"
+  },
 }
