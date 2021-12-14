@@ -9,7 +9,7 @@ const things = ['The quick fast agile brown fox jumps over the lazy dog', "Can w
 const chosentext = things[Math.floor(Math.random()*things.length)];
 const text = chosentext.split(' ').sort(() => Math.floor(Math.random() * Math.floor(3)) - 1).join(' ');
 
-export default function WordsPerMin() {
+export default function WordsPerMin(props) {
   const [textToType] = useState(text);
   const [typedText, setTypedText] = useState("");
   const [time, setTime] = useState(0);
@@ -92,19 +92,7 @@ export default function WordsPerMin() {
   }, [test]);
 
   function newScorePost(){
-
-    axios.post('/newScore', {
-      userName: 'shiv248',
-      score: wpm,
-      date: moment().format('MM/DD/YYYY'),
-      time: moment().format('h:mm a')
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    props.setScore(wpm)
 
   };
 

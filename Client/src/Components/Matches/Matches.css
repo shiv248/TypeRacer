@@ -12,6 +12,11 @@
     font-size: 22px;
     padding: 8% 3%;
 }
+.Matches .para {
+    text-align: center;
+    font-size: 15px;
+    padding: 8% 3%;
+}
 ::-webkit-scrollbar {
     width: 0;
 }
