@@ -26,13 +26,13 @@ if(process.env.NODE_ENV !== 'production'){
 }
 
 //Render React Application
-app.use(express.static(path.join(__dirname, "/client/build/")));
+app.use(express.static(path.join(__dirname, "/Client/build/")));
 
 require('./src/routes/api/route.js')(app,io);
 
 //wildcard request, if request doesnt fit any predifened ones goes to landing page
 app.get('*', (request, response) =>{
-    response.sendFile(path.join(__dirname, "/client/build/index.html"));
+    response.sendFile(path.join(__dirname, "/Client/build/index.html"));
 });
 
 //server listening for any reqests on port
