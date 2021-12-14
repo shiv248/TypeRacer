@@ -13,6 +13,11 @@
     background-color: white;
     border: 1px solid black;
 }
+@media only screen and (max-width: 750px) {
+    .Multiplayer .Multiplayer-container {
+        display: none;
+    }
+}
 .Multiplayer .Multiplayer-container .display {
     background-color: white;
     height: 100%;

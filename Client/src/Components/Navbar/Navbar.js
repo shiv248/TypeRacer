@@ -31,7 +31,7 @@ function Navbar(props) {
         </ul>
 
         <div className="UserInfo">
-          <div className="welcome">Welcome, {fName}!</div>
+          <div className="welcome">Welcome, <Link to={"/profile/"+fName}>{fName}</Link>!</div> 
           <div className="navbar-logout-container">
             <button className="logout-button" onClick={refreshPage}>Log out</button>
           </div>
