@@ -1,33 +1,30 @@
 .Multiplayer {
     position: relative;
     background-color: #D9FFF1;
-}
-.Multiplayer .grid {
-    display: grid;
-    grid-template-columns: 20% auto;
+    height: calc(100vh);
 }
 
-
-.Multiplayer-container {
-    position: relative;
-}
-.Multiplayer-container .display {
-    background-color: white;
-    margin: 5% auto 0% auto;
-    width: 55%;
+.Multiplayer .Multiplayer-container {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    width: 40%;
     height: 50%;
-    border: 1px solid;
-    display: grid;
-    grid-template-rows: auto auto auto auto auto;
+    background-color: white;
+    border: 1px solid black;
 }
-.Multiplayer-container input {
-    display: block;
-    margin: 0 auto;
-    margin-top: 1%;
-    width: 53.8%;
-    height: 7%;
+.Multiplayer .Multiplayer-container .display {
+    background-color: white;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+}
+.Multiplayer .Multiplayer-container input {
     border: 5px solid #FFC400;
-    font-size: 32px;
     padding-left: 10px;
     letter-spacing: 2px;
+}
+.Multiplayer .Multiplayer-container input[type="text"] {
+    margin: 5px 0px 0px 0px;
+    font-size: 22px;
 }

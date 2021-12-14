@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import './Profile.css';
 import Navbar from '../../Components/Navbar/Navbar';
-import Matches from '../../Components/Matches/Matches';
 import MIME from '../../Images/Mime.png';
 import TableMaker from '../../Components/TableMaker/TableMaker';
 const axios = require('axios');
@@ -63,23 +62,19 @@ export default function Profile(props) {
     return (
       <div className="Profile">
         <Navbar fName={props.parentUser}/>
-        <div className="grid">
-          <Matches />
-          <div className="Profile-container">
-            <div className="display">
-              <div className='profileinfo'>
-                <div className='picture'>
-                  <img alt="Mime" src={MIME}/>
-                </div>
-                <div className='info'>
-                  <div>Name: {fName + " " + lName}</div>
-                  <div>IGN: {uName}</div>
-                  <div>Highest WPM: {topWPM}</div>
-                </div>
+        <div className="Profile-container">
+          <div className="display">
+            <div className='profileinfo'>
+              <div className='picture'>
+                <img alt="Mime" src={MIME}/>
               </div>
-              <TableMaker data={profileMatches} title={profileMatchTitle}/>
+              <div className='info'>
+                <div>Name: {fName + " " + lName}</div>
+                <div>IGN: {uName}</div>
+                <div>Highest WPM: {topWPM}</div>
+              </div>
             </div>
-
+            <TableMaker data={profileMatches} title={profileMatchTitle}/>
           </div>
         </div>
       </div>

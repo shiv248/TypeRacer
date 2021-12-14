@@ -1,18 +1,17 @@
-import './TopOneHundo.css';
+import './Leaderboard.css';
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import Navbar from '../../Components/Navbar/Navbar';
-import Matches from '../../Components/Matches/Matches';
 import TableMaker from '../../Components/TableMaker/TableMaker';
 const axios = require('axios');
 
-export default function TopOneHundo(props) {
+export default function Leaderboard(props) {
   const [highScoreList, setHighScoreList] = useState([]);
   const [HSTitle, setHSTitle] = useState([]);
   useMemo(() => {
     axios.get('/top')
     .then(function (response) {
       setHighScoreList(parseRankName(response.data));
-      setHSTitle(["highscores","Top 10 Leaderboard (All Time)","#","Name","WPM"]);
+      setHSTitle(["highscores","Top 100 Leaderboard (All Time)","#","Name","WPM"]);
     })
     .catch(function (error) {
       console.log(error);
@@ -28,14 +27,11 @@ export default function TopOneHundo(props) {
     }
     console.log(highScoreList)
     return (
-      <div className="TopOneHundo">
+      <div className="Leaderboard">
         <Navbar fName={props.parentUser}/>
-        <div className="grid">
-          <Matches />
-          <div className="TopOneHundo-container">
-            <div className="display">
-              <TableMaker data={highScoreList} title={HSTitle}/>
-            </div>
+        <div className="Leaderboard-container">
+          <div className="display">
+            <TableMaker data={highScoreList} title={HSTitle}/>
           </div>
         </div>
       </div>

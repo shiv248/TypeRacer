@@ -1,24 +1,19 @@
 .AboutUs {
     position: relative;
     background-color: #D9FFF1;
+    height: calc(100vh);
 }
-.AboutUs .grid {
-    display: grid;
-    grid-template-columns: 20% auto;
-}
-
 
 .AboutUs-container {
-
-}
-.AboutUs-container .display {
-    background-color: white;
-    margin: 5% auto 0% auto;
-    width: 55%;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    width: 40%;
     height: fit-content;
-    border: 1px solid;
+    background-color: white;
+    border: 1px solid black;
 }
-.AboutUs-container .display p {
+.AboutUs-container p {
     padding: 0 10%;
     font-size: 24px;
 }
